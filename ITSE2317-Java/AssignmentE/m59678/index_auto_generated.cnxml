@@ -1,0 +1,505 @@
+<?xml version="1.0"?>
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml/0.4" xmlns:bib="http://bibtexml.sf.net/" xmlns:q="http://cnx.rice.edu/qml/1.0" xmlns:md1="http://cnx.rice.edu/mdml" xmlns:m="http://www.w3.org/1998/Math/MathML" id="id1171809754444" module-id="m12345" cnxml-version="0.7"> 
+<title>Java116 FlowLayout</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml"
+          mdml-version="0.5">
+  <!-- WARNING! The 'metadata' section is read only. Do not edit below.
+       Changes to the metadata section in the source will not be saved. -->
+  <md:repository>http://legacy.cnx.org/content</md:repository>
+  <md:content-url>http://legacy.cnx.org/content/m59678/latest</md:content-url>
+  <md:content-id>m59678</md:content-id>
+  <md:title>Java116 FlowLayout</md:title>
+  <md:version>1.1</md:version>
+  <md:created>2016/01/15 15:21:06 -0600</md:created>
+  <md:revised>2016/01/15 16:00:05 -0600</md:revised>
+  <md:actors>
+    <md:person userid="baldwin">
+      <md:firstname>Richard</md:firstname>
+      <md:surname>Baldwin</md:surname>
+      <md:fullname>R.G. (Dick) Baldwin</md:fullname>
+      <md:email>Baldwin@DickBaldwin.com</md:email>
+    </md:person>
+  </md:actors>
+  <md:roles>
+    <md:role type="author">baldwin</md:role>
+    <md:role type="maintainer">baldwin</md:role>
+    <md:role type="licensor">baldwin</md:role>
+  </md:roles>
+  <md:license url="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License 4.0</md:license>
+  <!-- For information on license requirements for use or modification, see license url in the
+       above <md:license> element.
+       For information on formatting required attribution, see the URL:
+         CONTENT_URL/content_info#cnx_cite_header
+       where CONTENT_URL is the value provided above in the <md:content-url> element.
+  -->
+  <md:keywordlist>
+    <md:keyword>centered</md:keyword>
+    <md:keyword>FlowLayout</md:keyword>
+    <md:keyword>java</md:keyword>
+    <md:keyword>left aligned</md:keyword>
+    <md:keyword>right aligned</md:keyword>
+  </md:keywordlist>
+  <md:subjectlist>
+    <md:subject>Science and Technology</md:subject>
+  </md:subjectlist>
+  <md:abstract>JDK 1.1 provides the FlowLayout manager, which solves cross-platform compatibility problems and allows you to place any (reasonable) number of components in a container. 
+FlowLayout arranges components left to right until no more components fit on the same line. When no more components will fit on a line, a new line is started below the current line. Each line of components can either be centered, left aligned, or right aligned in the container.
+If the container is resized by the user at runtime, the locations of the components will be automatically adjusted to place the maximum possible number of components on the first and each successive line.</md:abstract>
+  <md:language>en</md:language>
+  <!-- WARNING! The 'metadata' section is read only. Do not edit above.
+       Changes to the metadata section in the source will not be saved. -->
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Tutorial_Links">
+
+Tutorial and code links
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1000">
+Over the years, I have published a large number of tutorials in the areas of computer programming and 
+	digital signal processing (DSP). As I have time available, I am converting the more significant of those tutorials into cnxml code and re-publishing them at 
+	
+
+<link id="a1003" url="http://cnx.org/">
+
+cnx.org
+
+</link>
+
+.
+
+
+
+</para>
+
+
+
+
+<para id="p1001">
+In the meantime, this is one of the pages in a book titled
+	
+
+	
+
+<link id="a1004" url="http://cnx.org/contents/-2RmHFs_:JVTd7bX1">
+
+Object-Oriented Programming (OOP) with Java
+
+</link>
+
+ 
+that presents PDF versions of the original tutorials to make them readily available for Connexions users. 
+When I have time available, I plan to update this tutorial and to re-publish it 
+as a standard page at 
+
+<link id="a1005" url="http://cnx.org/">
+
+cnx.org
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1002">
+This tutorial may contain internal links to other tutorials that I have 
+written and published somewhere on the web. Those links may, or may not still be 
+good. In any event, if you search 
+
+<link id="a1006" url="http://cnx.org/">
+
+cnx.org
+
+</link>
+
+ for the 
+tutorial by title or by topic, you will probably find a clean copy of the 
+referenced tutorial at 
+
+<link id="a1007" url="http://cnx.org/">
+
+cnx.org
+
+</link>
+
+. If not, you can probably use a
+
+
+<link id="a1008" url="https://www.google.com/advanced_search">
+
+Google Advanced Search
+
+</link>
+
+ to find a 
+copy somewhere on the web.
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Tutorial_Links" effect="bold">
+
+Tutorial and code links
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1003">
+Click 
+
+<link id="a1009" url="Java116.pdf">
+
+here
+
+</link>
+
+ to download and view the PDF version of this 
+page. 
+
+</para>
+
+
+
+
+<para id="p1004">
+The representation of program code in PDF documents is often very 
+unreliable. Click 
+
+<link id="a1010" url="code.zip">
+
+here
+
+</link>
+
+ to download a zip file containing a clean copy of the 
+program code discussed in this tutorial.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1000" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1001" list-type="bulleted">
+
+					
+
+<item id="li1003">
+Module name: Java116 FlowLayout
+
+</item>
+
+
+					
+
+<item id="li1004">
+File: Java116.cnx.htm
+
+
+</item>
+
+
+					
+
+<item id="li1005">
+Published: 01/15/16
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1001" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1006">
+<emphasis id="strong1002" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+				website makes it possible for you to purchase a pre-printed 
+				version of the book containing this page, please be aware that 
+				the pre-printed version probably won't contain the contents of 
+				the PDF file referenced 
+
+<link id="a1011" target-id="Tutorial_Links">
+
+above
+
+</link>
+
+.
+
+</para>
+
+
+				
+
+<para id="p1007">
+I also want you to know that, I receive no financial 
+				compensation from the Connexions website even if you purchase 
+				the pre-printed version of the book.
+
+</para>
+
+
+				
+
+<para id="p1008">
+In the past, unknown individuals have copied my materials from cnx.org, converted them to Kindle books, and 
+				have placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of material that is freely 
+				available on 
+
+<link id="a1012" url="http://cnx.org/">
+
+cnx.org
+
+</link>
+
+ and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1009">
+<emphasis id="strong1003" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1010">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,451 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head xmlns:c="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml"><title>Java116 FlowLayout</title><meta name="created-time" content="2016/01/15 15:21:06.943 US/Central"/><meta name="revised-time" content="2016/01/15 16:00:05.061 US/Central"/><meta name="author" content="baldwin"/><meta name="acl-list" content="baldwin"/><meta name="licensor" content="baldwin"/><meta name="license" content="http://creativecommons.org/licenses/by/4.0/"/><meta name="keywords" content="centered, FlowLayout, java, left aligned, right aligned"/><meta name="subject" content="Science and Technology"/></head>
+
+<body xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:qml="http://cnx.rice.edu/qml/1.0" xmlns:mod="http://cnx.rice.edu/#moduleIds" xmlns:bib="http://bibtexml.sf.net/" xmlns:data="http://www.w3.org/TR/html5/dom.html#custom-data-attribute"><div data-type="document-title">Java116 FlowLayout</div><div data-type="abstract">JDK 1.1 provides the FlowLayout manager, which solves cross-platform compatibility problems and allows you to place any (reasonable) number of components in a container. 
+FlowLayout arranges components left to right until no more components fit on the same line. When no more components will fit on a line, a new line is started below the current line. Each line of components can either be centered, left aligned, or right aligned in the container.
+If the container is resized by the user at runtime, the locations of the components will be automatically adjusted to place the maximum possible number of components on the first and each successive line.</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-depth="1" id="h11000"><h1 data-type="title">
+Table of contents
+
+</h1>
+
+
+
+
+<ul id="ul1000">
+
+	
+
+<li id="li1000">
+<a href="#Preface" id="a1000">
+
+Preface
+
+</a>
+
+
+	
+
+</li>
+
+
+	
+
+<li id="li1001">
+<a href="#Tutorial_Links" id="a1001">
+
+Tutorial and code links
+
+</a>
+
+
+</li>
+
+
+	
+
+<li id="li1002">
+<a href="#Miscellaneous" id="a1002">
+
+Miscellaneous
+
+</a>
+
+
+</li>
+
+
+
+
+</ul>
+
+
+	
+
+	
+
+</section>
+<section data-depth="1" id="h11001"><h1 data-type="title">
+<strong id="Preface" data-effect="bold">
+
+Preface
+
+</strong>
+
+
+</h1>
+
+
+	
+
+	
+
+<p id="p1000">
+Over the years, I have published a large number of tutorials in the areas of computer programming and 
+	digital signal processing (DSP). As I have time available, I am converting the more significant of those tutorials into cnxml code and re-publishing them at 
+	
+
+<a href="http://cnx.org/" id="a1003">
+
+cnx.org
+
+</a>
+
+.
+
+
+
+</p>
+
+
+
+
+<p id="p1001">
+In the meantime, this is one of the pages in a book titled
+	
+
+	
+
+<a href="http://cnx.org/contents/-2RmHFs_:JVTd7bX1" id="a1004">
+
+Object-Oriented Programming (OOP) with Java
+
+</a>
+
+ 
+that presents PDF versions of the original tutorials to make them readily available for Connexions users. 
+When I have time available, I plan to update this tutorial and to re-publish it 
+as a standard page at 
+
+<a href="http://cnx.org/" id="a1005">
+
+cnx.org
+
+</a>
+
+.
+
+</p>
+
+
+
+
+<p id="p1002">
+This tutorial may contain internal links to other tutorials that I have 
+written and published somewhere on the web. Those links may, or may not still be 
+good. In any event, if you search 
+
+<a href="http://cnx.org/" id="a1006">
+
+cnx.org
+
+</a>
+
+ for the 
+tutorial by title or by topic, you will probably find a clean copy of the 
+referenced tutorial at 
+
+<a href="http://cnx.org/" id="a1007">
+
+cnx.org
+
+</a>
+
+. If not, you can probably use a
+
+
+<a href="https://www.google.com/advanced_search" id="a1008">
+
+Google Advanced Search
+
+</a>
+
+ to find a 
+copy somewhere on the web.
+
+</p>
+
+
+
+
+
+
+
+
+</section>
+<section data-depth="1" id="h11002"><h1 data-type="title">
+<strong id="Tutorial_Links" data-effect="bold">
+
+Tutorial and code links
+
+</strong>
+
+
+</h1>
+
+
+
+
+<p id="p1003">
+Click 
+
+<a href="/resources/2ae9cf3c736edcaa7cbecf2d4bc6f9167bf3bf5e/Java116.pdf" id="a1009">
+
+here
+
+</a>
+
+ to download and view the PDF version of this 
+page. 
+
+</p>
+
+
+
+
+<p id="p1004">
+The representation of program code in PDF documents is often very 
+unreliable. Click 
+
+<a href="/resources/812c3f18dcbb259fbb5066ef027321eacac5b0f9/code.zip" id="a1010">
+
+here
+
+</a>
+
+ to download a zip file containing a clean copy of the 
+program code discussed in this tutorial.
+
+</p>
+
+
+	
+
+</section>
+<section data-depth="1" id="h11003"><h1 data-type="title">
+<strong id="Miscellaneous" data-effect="bold">
+
+Miscellaneous
+
+</strong>
+
+
+</h1>
+
+
+	
+
+<p id="p1005">
+This section contains a variety of miscellaneous information.
+
+</p>
+
+
+
+
+
+	
+
+<div data-type="note" class="note" id="note1000" data-label="" data-element-type="">
+
+
+		
+
+
+			
+
+
+				
+
+<strong id="strong1000" data-effect="bold">
+Housekeeping material
+
+</strong>
+
+				
+
+<ul id="ul1001">
+
+					
+
+<li id="li1003">
+Module name: Java116 FlowLayout
+
+</li>
+
+
+					
+
+<li id="li1004">
+File: Java116.cnx.htm
+
+
+</li>
+
+
+					
+
+<li id="li1005">
+Published: 01/15/16
+
+</li>
+
+
+
+				
+
+</ul>
+
+
+				
+
+</div>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<div data-type="note" class="note" id="note1001" data-label="" data-element-type="">
+
+
+		
+
+
+			
+
+
+				
+
+<strong id="strong1001" data-effect="bold">
+Disclaimers:
+
+</strong>
+<p id="p1006">
+<strong id="strong1002" data-effect="bold">
+Financial
+
+</strong>
+: Although the Connexions
+				website makes it possible for you to purchase a pre-printed 
+				version of the book containing this page, please be aware that 
+				the pre-printed version probably won't contain the contents of 
+				the PDF file referenced 
+
+<a href="#Tutorial_Links" id="a1011">
+
+above
+
+</a>
+
+.
+
+</p>
+
+
+				
+
+<p id="p1007">
+I also want you to know that, I receive no financial 
+				compensation from the Connexions website even if you purchase 
+				the pre-printed version of the book.
+
+</p>
+
+
+				
+
+<p id="p1008">
+In the past, unknown individuals have copied my materials from cnx.org, converted them to Kindle books, and 
+				have placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of material that is freely 
+				available on 
+
+<a href="http://cnx.org/" id="a1012">
+
+cnx.org
+
+</a>
+
+ and that it was made and published without 
+				my prior knowledge.
+
+</p>
+
+
+				
+
+<p id="p1009">
+<strong id="strong1003" data-effect="bold">
+Affiliation
+
+</strong>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</p>
+
+
+				
+
+</div>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<p id="p1010">
+-end- 
+
+</p>
+
+
+
+
+
+
+
+</section>
+</body>
+
+</html>
